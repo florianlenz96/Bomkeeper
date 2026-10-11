@@ -54,6 +54,39 @@ Entscheidung ist vorgeschlagen und soll vor Implementierung überprüft werden.
   Status separat ausweisen. WORM-Status wird nicht mit erfolgreicher
   kryptografischer Verifikation gleichgesetzt.
 
+## Ablaufdiagramm
+
+Das Diagramm zeigt getrennt das Erstellen und Speichern des Bundles sowie die
+spätere Offline-Prüfung. Die Syntax kann in sequencediagram.org eingefügt
+werden.
+
+```text
+title: Evidence Bundle erstellen und offline prüfen
+participant Submitter
+participant CLI
+participant Signer
+participant TSA
+participant WORM
+participant Auditor
+participant Verifier
+participant TrustPolicy
+
+Submitter->CLI: Original-SBOM und Release-Metadaten
+CLI->CLI: Nutzdaten hashen und Manifest-Bytes erzeugen
+CLI->Signer: Exakte Manifest-Bytes signieren
+Signer-->CLI: Abgetrennte CMS-Signatur
+CLI->TSA: RFC-3161-Zeitstempel für den Signaturwert anfordern
+TSA-->CLI: Zeitstempel-Token
+CLI->WORM: Bundle-Dateien mit Retention ablegen
+WORM-->CLI: Ablage- und Retention-Status
+
+Auditor->Verifier: Bundle und lokale Vertrauensrichtlinie bereitstellen
+Verifier->Verifier: Hashes, CMS-Signatur und Zeitstempel offline prüfen
+Verifier->TrustPolicy: Signatur- und TSA-Kette gegen Vertrauensanker prüfen
+TrustPolicy-->Verifier: Vertrauensstatus gemäß lokaler Richtlinie
+Verifier-->Auditor: Integritäts-, Zeitstempel- und Vertrauensstatus getrennt ausgeben
+```
+
 ## Begründung
 
 Die Hashes verbinden die tatsächlichen Nutzdaten mit dem Manifest; die
