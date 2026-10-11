@@ -1,6 +1,6 @@
 # ADR-0001: Open-Core-Schnitt
 
-- **Status:** Akzeptiert (Lizenz des kommerziellen Teils: offen, siehe unten)
+- **Status:** Akzeptiert
 - **Datum:** 2026-10-07
 
 ## Kontext
@@ -23,4 +23,4 @@ Komfort, Struktur und Betrieb sind kommerziell: Server, Produktmodell, Index, We
 
 - Der offene Teil darf nie von kommerziellem Code abhängen (Labels `oss` / `commercial`).
 - Bis Release 0.1 ein privates Monorepo; danach wird der offene Teil in ein öffentliches Repo verschoben.
-- **Offen:** Lizenz des kommerziellen Teils – proprietär oder Functional Source License (wird nach zwei Jahren Apache-2.0). Empfehlung FSL. Entscheidung im Issue „Lizenzmodell entscheiden“ (M0).
+- Die Lizenz des kommerziellen Teils ist in ADR-0004 festgelegt: FSL-1.1-MIT.

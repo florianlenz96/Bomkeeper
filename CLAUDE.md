@@ -46,6 +46,6 @@ Die Trennung muss so sauber sein, dass der offene Teil später ohne Umbau in ein
 
 ## Projektstand
 
-Aktueller Meilenstein: **M0 Fundament & Validierung** (bis 30.11.2026). Es gibt noch keinen Produktivcode. Technik-Stack und Lizenz für den kommerziellen Teil werden in M0 per ADR entschieden – bis dahin nichts davon vorwegnehmen.
+Aktueller Meilenstein: **M0 Fundament & Validierung** (bis 30.11.2026). Es gibt noch keinen Produktivcode. Lizenzmodell und Technik-Stack sind in ADR-0004 und ADR-0005 entschieden. Bis Produktcode existiert, keine Build- oder Testbefehle erfinden.
 
 <!-- Sobald der Stack feststeht, hier ergänzen: Verzeichnisstruktur, Build-, Test- und Lint-Befehle. -->
